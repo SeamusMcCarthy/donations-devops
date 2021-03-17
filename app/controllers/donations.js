@@ -2,11 +2,13 @@
 
 const Donation = require("../models/donation");
 const User = require("../models/user");
+const Candidate = require("../models/candidate");
 
 const Donations = {
   home: {
-    handler: function (request, h) {
-      return h.view("home", { title: "Make a Donation" });
+    handler: async function (request, h) {
+      const candidates = await Candidate.find().lean();
+      return h.view("home", { title: "Make a Donation", candidates: candidates });
     },
   },
   report: {
