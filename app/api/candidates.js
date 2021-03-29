@@ -14,8 +14,15 @@ const Candidates = {
   findOne: {
     auth: false,
     handler: async function (request, h) {
-      const candidate = await Candidate.findOne({ _id: request.params.id });
-      return candidate;
+      try {
+        const candidate = await Candidate.findOne({ _id: request.params.id });
+        if (!candidate) {
+          return Boom.notFound("No Candidate with this id");
+        }
+        return candidate;
+      } catch (err) {
+        return Boom.notFound("No Candidate with this id");
+      }
     },
   },
 };
