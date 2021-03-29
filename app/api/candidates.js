@@ -10,6 +10,14 @@ const Candidates = {
       return candidates;
     },
   },
+
+  findOne: {
+    auth: false,
+    handler: async function (request, h) {
+      const candidate = await Candidate.findOne({ _id: request.params.id });
+      return candidate;
+    },
+  },
 };
 
 module.exports = Candidates;
