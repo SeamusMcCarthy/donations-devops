@@ -8,8 +8,9 @@ const _ = require("lodash");
 suite("Candidate API tests", function () {
   let candidates = fixtures.candidates;
   let newCandidate = fixtures.newCandidate;
+  let url = fixtures.donationService;
 
-  const donationService = new DonationService("https://dashboard.heroku.com/apps/serene-ravine-12430");
+  const donationService = new DonationService(url);
 
   setup(async function () {
     await donationService.deleteAllCandidates();
