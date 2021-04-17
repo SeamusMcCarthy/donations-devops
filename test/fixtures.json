@@ -51,10 +51,6 @@
         {
             "amount": 90,
             "method": "direct"
-        },
-        {
-            "amount": 430,
-            "method": "paypal"
         }
     ]
 }
