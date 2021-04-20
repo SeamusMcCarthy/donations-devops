@@ -2,6 +2,7 @@
 
 const Accounts = require("./app/controllers/accounts");
 const Donations = require("./app/controllers/donations");
+const os = require("os");
 
 module.exports = [
   { method: "GET", path: "/", config: Accounts.index },
@@ -26,5 +27,14 @@ module.exports = [
       },
     },
     options: { auth: false },
+  },
+
+  {
+    method: "GET",
+    path: "/testlb",
+    handler: function (request, h) {
+      return "Server: " + os.hostname();
+    },
+    options: { auth: false }, // so you don't need to log in first to test it.
   },
 ];
