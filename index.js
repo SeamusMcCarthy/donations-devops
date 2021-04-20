@@ -9,13 +9,13 @@ const Vision = require("@hapi/vision");
 const Handlebars = require("handlebars");
 const Joi = require("@hapi/joi");
 
-// const server = Hapi.server({
-//   port: 3000,
-//   host: "localhost",
-// });
 const server = Hapi.server({
-  port: process.env.PORT || 3000,
+  port: 3000,
+  host: "localhost",
 });
+// const server = Hapi.server({
+//   port: process.env.PORT || 3000,
+// });
 
 async function init() {
   await server.register(Cookie);

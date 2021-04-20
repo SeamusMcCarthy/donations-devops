@@ -2,6 +2,7 @@
 const Boom = require("@hapi/boom");
 const User = require("../models/user");
 const Joi = require("@hapi/joi");
+const os = require("os");
 
 const Accounts = {
   index: {
@@ -118,6 +119,13 @@ const Accounts = {
       } catch (err) {
         return h.view("login", { errors: [{ message: err.message }] });
       }
+    },
+  },
+  testlb: {
+    auth: false,
+    handler: function (request, h) {
+      const instance = "Server: " + os.hostname();
+      return h.view("testlb", { instance: instance });
     },
   },
   settings: {

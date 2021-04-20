@@ -32,9 +32,10 @@ module.exports = [
   {
     method: "GET",
     path: "/testlb",
-    handler: function (request, h) {
-      return "Server: " + os.hostname();
-    },
-    options: { auth: false }, // so you don't need to log in first to test it.
+    config: Accounts.testlb,
+    // handler: function (request, h) {
+    //   return "Server: " + os.hostname();
+    // },
+    // options: { auth: false }, // so you don't need to log in first to test it.
   },
 ];
