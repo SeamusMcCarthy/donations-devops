@@ -35,6 +35,6 @@ module.exports = [
     handler: function (request, h) {
       return "Server: " + os.hostname();
     },
-    options: { auth: false }, // so you don't need to log in first to test it.
+    config: { auth: false }, // so you don't need to log in first to test it.
   },
 ];
